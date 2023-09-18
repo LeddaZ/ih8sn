@@ -44,6 +44,10 @@ int main(int argc, char *argv[]) {
                 config.manufacturer_name.c_str());
     }
 
+    if (is_init_stage && config.product_model != "") {
+        property_override(property_list("ro.product.", "model"), config.product_model.c_str());
+    }
+
     if (is_init_stage && config.product_name != "") {
         property_override(property_list("ro.product.", "name"), config.product_name.c_str());
     }

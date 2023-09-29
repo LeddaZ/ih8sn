@@ -2,9 +2,9 @@ ifneq ($(TARGET_BUILD_VARIANT), eng)
 PRODUCT_PACKAGES += \
     ih8sn
 
-ifneq ("$(wildcard $(LOCAL_PATH)/system/etc/ih8sn.conf.$(subst lineage_,,$(TARGET_PRODUCT)))","")
+ifneq ("$(wildcard $(LOCAL_PATH)/system/etc/ih8sn.conf.$(subst lmodroid_,,$(TARGET_PRODUCT)))","")
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/system/etc/ih8sn.conf.$(subst lineage_,,$(TARGET_PRODUCT)):$(TARGET_COPY_OUT_SYSTEM)/etc/ih8sn.conf
+    $(LOCAL_PATH)/system/etc/ih8sn.conf.$(subst lmodroid_,,$(TARGET_PRODUCT)):$(TARGET_COPY_OUT_SYSTEM)/etc/ih8sn.conf
 else
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/system/etc/ih8sn.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/ih8sn.conf

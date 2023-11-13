@@ -8,13 +8,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Setup Android NDK
+    - name: Setup Android NDK r26b
       run: |
-        wget https://dl.google.com/android/repository/android-ndk-r26-linux.zip
-        unzip android-ndk-r26-linux.zip
+        wget https://dl.google.com/android/repository/android-ndk-r26b-linux.zip
+        unzip android-ndk-r26b-linux.zip
     - name: Build (AArch64)
       run: |
-        ANDROID_NDK_HOME=./android-ndk-r26 CXX=aarch64-linux-android34-clang++ ./build.sh
+        ANDROID_NDK_HOME=./android-ndk-r26b CXX=aarch64-linux-android34-clang++ ./build.sh
         zip -r ih8sn-aarch64.zip META-INF system push.ps1 push.sh
     - uses: actions/upload-artifact@v1
       with:
@@ -22,7 +22,7 @@ jobs:
         path: ih8sn-aarch64.zip
     - name: Build (ARMv7-A)
       run: |
-        ANDROID_NDK_HOME=./android-ndk-r26 CXX=armv7a-linux-androideabi34-clang++ ./build.sh
+        ANDROID_NDK_HOME=./android-ndk-r26b CXX=armv7a-linux-androideabi34-clang++ ./build.sh
         zip -r ih8sn-armv7a.zip META-INF system push.ps1 push.sh
     - uses: actions/upload-artifact@v1
       with:
@@ -30,7 +30,7 @@ jobs:
         path: ih8sn-armv7a.zip
     - name: Build (i686)
       run: |
-        ANDROID_NDK_HOME=./android-ndk-r26 CXX=i686-linux-android34-clang++ ./build.sh
+        ANDROID_NDK_HOME=./android-ndk-r26b CXX=i686-linux-android34-clang++ ./build.sh
         zip -r ih8sn-i686.zip META-INF system push.ps1 push.sh
     - uses: actions/upload-artifact@v1
       with:
@@ -38,7 +38,7 @@ jobs:
         path: ih8sn-i686.zip
     - name: Build (x86_64)
       run: |
-        ANDROID_NDK_HOME=./android-ndk-r26 CXX=x86_64-linux-android34-clang++ ./build.sh
+        ANDROID_NDK_HOME=./android-ndk-r26b CXX=x86_64-linux-android34-clang++ ./build.sh
         zip -r ih8sn-x86_64.zip META-INF system push.ps1 push.sh
     - uses: actions/upload-artifact@v1
       with:
